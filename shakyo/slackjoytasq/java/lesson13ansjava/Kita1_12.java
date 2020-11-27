@@ -1,0 +1,10 @@
+public class Kita1_12{
+  public static void main(String[] args){
+   int x=5;
+   x++;
+   System.out.println("インクリメント:"+x);
+   x--;
+   System.out.println("デクリメント:"+x);
+    
+  }
+}

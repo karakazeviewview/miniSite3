@@ -1,0 +1,49 @@
+ココンカ
+メソッドについての解説
+
+
+ import java.util.*;
+   public class lesson82_2{
+     public static void main(String[] args){
+       int n=sumOf(3,5);
+       System.out.println(n);
+     }
+     public static int sumOf(int a,int b){
+       return(a+b);
+     }
+  }
+        
+
+sumOfメソッド作成
+int型 変数a,int型 変数bを宣言
+戻り値を(a+b)とする
+
+mainメソッドで、int型 変数名nを宣言と同時に、
+sumOfメソッドを呼び出し、(3,5)を代入
+変数nを出力
+
+
+　                import java.util.*;
+   public class lesson82{
+     public static void main(String[] args){
+       System.out.println("言葉>");
+       String word=new java.util.Scanner(System.in).nextLine();
+       String decorated=decorateWord(word);
+       System.out.println(decorated);
+     }
+     public static String decorateWord(String w){
+      return "***"+w+"***";
+    }
+  }
+
+
+"言葉>"の入力を促すための出力
+Scannerで変数wordを取得
+
+String型のdecorateWordメソッドを作成し、
+引数をString型のwとする
+戻り値として"***"+w+"***"をmainメソッドに渡す
+
+String型の変数decoratedにdecorateWordメソッドの機能と変数wordを代入
+変数decoratedを出力
+

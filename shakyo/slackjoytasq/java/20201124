@@ -1,0 +1,198 @@
+20201124
+1時間目
+メソッドオーバーロード
+
+教科書p205
+
+javaは、型が違えば同じメソッド複数定義できる
+
+名前と引数のくみをシグネチャ
+int a,bはもう定義されているからダメ
+
+
+値渡しは原本は変わらない
+参照渡しは、いじられると原本が変わる
+
+2時間目
+p215：
+p218練習問題
+練習5−1、5−2、5−3、5−4vd
+
+3時間目
+ヒロセさんの問題
+と、先生のアレンジ問題
+
+4時間目
+続き
+
+5時間目
+Slackに上がった、サイコロゲーム
+
+課題
+プロゲートと、
+メソッド問題作成
+
+
+
+ヒロセさんの問題
+問題 AさんとBさんがサイコロを振る回数を引数で受け取り、それぞれの出た目を返すメソッドを作成し、その合計の大きい方が勝者となる処理を作成せよ
+
+[実行結果]
+何回ふる？>5 [ENTER]
+Aさん:3,2,6,1,4 合計:16
+Bさん:5,2,1,6,3 合計:17
+Bさんの勝ち
+＊あいこの場合は引き分け
+
+-------------------------
+
+先生の問題
+サイコロを引く回数を引数で与えると、出た目(1~6）を配列にして返すメソッドを作成せよ。 のメソッド利用し、以下の実行例をせよ。
+
+[実行結果]
+何回ふる？>5 [ENTER]
+Aさん:[3,2,6,1,4] 合計:16
+Bさん:[5,2,1,6,3] 合計:17
+Bさんの勝ち
+＊あいこの場合は引き分け
+
+4時間目
+
+5時間目
+
+jkjkjjll
+
+Q1 配列を返すメソッド
+int型の引数を一つ受け取り、その個数分のランダムなサイコロの目(1~6)が入った配列を返すメソッドを作成せよ。
+
+static int[] createDiceArr(int count){}
+
+ex. createDiceArr(3) //->[3,1,5]
+Q2 連続したchar配列
+char型1つとint型1つを受け取るとその文字から個数分の連続したアルファベットが入ったchar型配列を返却するメソッドを作成せよ。
+
+static char[] createAlphArr(char first,int num){}
+
+ex. createAlphArr('A',3) //->['A','B','C']
+[hint]
+
+char c1=’A’;
+char c2=(char)(c1+1); //->’B’
+char c3=(char)(c1+2); //->’C’
+
+Q3 同じか?
+引数にint配列を受け取り、その要素がすべて等しいかどうかをbooleanで返却するメソッドを作成せよ。
+
+static boolean isSame(int[] nums){}
+
+ex isSame(new int[]{2,2}) //->true
+Q4 配列の最大値
+int型配列に入っている最大値を返却するメソッドを作成せよ
+
+static int maxNum(int[] nums){}
+
+ex. maxNum(new int[]{2,1,5}) //->5
+ダイスゲーム作成
+上で作成したメソッドを用いて以下のダイスゲームを作成せよ。
+
+[実行例1]
+
+何人>3
+何回ふる>5
+Aさん:[1, 4, 4, 6, 2] 合計:17
+Bさん:[2, 1, 2, 1, 4] 合計:10
+Cさん:[2, 3, 1, 1, 1] 合計:8
+Aさんの勝ち
+[実行例2]
+
+何人>5
+何回ふる>3
+Aさん:[2, 2, 4] 合計:8
+Bさん:[4, 6, 2] 合計:12
+Cさん:[2, 1, 4] 合計:7
+Dさん:[6, 3, 3] 合計:12
+Eさん:[6, 1, 2] 合計:9
+Bさん,Dさんの勝ち
+[実行例３]
+
+何人>3
+何回ふる>3
+Aさん:[5, 5, 1] 合計:11
+Bさん:[2, 5, 4] 合計:11
+Cさん:[1, 4, 6] 合計:11
+引き分け
+
+
+import java.util.*;
+public class Main{
+	public static void main(String[] args){
+		//プレイヤー作成
+		System.out.print("何人>");
+		int personNum=new Scanner(System.in).nextInt();
+		char[] players= #;
+		//プレイヤーごとの合計点を管理する配列
+		int[] sums=new int[players.length];
+		//ダイスの目作成
+		System.out.print("何回ふる>");
+		int count=new Scanner(System.in).nextInt();
+		for(int i=0;i<players.length;i++){
+			int[] diceArr= #;
+			for(int n:diceArr){
+				##
+			}
+			System.out.printf("%sさん:%s 合計:%d%n",players[i],Arrays.toString(diceArr),sums[i]);
+		}
+		//結果判定
+		if(#){
+			System.out.println("引き分け");
+		}else{
+			int maxNum=#;
+			String str="";
+			for(int i=0;i<sums.length;i++){
+				if(sums[i]==maxNum){
+					str+=players[i]+"さん,";
+				}
+			}
+			//最後の,を削除する処理
+			str=str.substring(0,str.length()-1);
+			//結果出力
+			System.out.println(str+"の勝ち");
+		}
+	}
+	//count分のダイスの目を返すメソッド
+	static int[] createDiceArr(int count){
+		int[] diceArr=new int[count];
+		for(int i=0;i<diceArr.length;i++){
+			diceArr[i]=new Random().nextInt(6)+1;
+		}
+		return diceArr;
+	}
+	//連続したchar配列を返すメソッド
+	static char[] createAlphArr(char first,int num){
+		char[] alphArr=new char[num];
+		for(int i=0;i<alphArr.length;i++){
+			alphArr[i]=(char)(first+i);
+		}
+		return alphArr;
+	}
+	//配列の要素がすべて同じか?を返すメソッド
+	static boolean isSame(int[] nums){
+		int first=nums[0];
+		for(int i=1;i<nums.length;i++){
+			if(nums[i] != first){
+				return false;
+			}
+		}
+		return true;
+	}
+	//配列の最大値を返すメソッド
+	static int maxNum(int[] nums){
+		int max=nums[0];
+		for(int i=1;i<nums.length;i++){
+			if(nums[i] > max){
+				max=nums[i];
+			}
+		}
+		return max;
+	}
+}

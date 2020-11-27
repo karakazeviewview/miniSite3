@@ -1,0 +1,94 @@
+1時間目
+教科書p223〜
+
+クラスパス　重要
+
+パッケージやフォルダは小文字
+クラスは大文字
+
+自分のインターネットドメインを逆さまにして、パッケージ名の衝突を防ぐ
+
+2時間目
+パッケージ
+クラス
+
+3時間目
+クラスパスの設定
+
+4時間目
+
+以下の手順で実行例の処理を実現せよ。
+1.配列のクローンを返却するメソッドを作成する。
+public static int[] arrClone(int[] arr){}
+2.配列を昇順に並び替えるメソッドを作成する。
+public static void arrSort(int[] arr){}
+3.2で作ったメソッドをオーバーロードし、第二引数でtrueを渡されると降順ソートするメソッドを作成する。
+public static void arrSort(int[] arr,boolean isDesc){}
+4.要素数と指定範囲を受け取り、指定範囲の乱数で埋め尽くした配列を返すメソッドを作成せよ
+public static int[] arrRandomRange(int min,int max,int count){}
+5.Mainメソッドにて以下の処理を実現する。なお、最初に作る配列は-10~10の乱数で埋め尽くすこと。
+配列の要素数を入力してください>10
+配列を生成しました。
+[-2,0,8,2,-4,3,7,0,-4,-9]
+1...元の配列を表示,2...配列を昇順ソート,3...配列を降順ソート,4...終了>2
+[-9,-4,-4,-2,0,0,2,3,7,8]
+1...元の配列を表示,2...配列を昇順ソート,3...配列を降順ソート,4...終了>3
+[8,7,3,2,0,0,-2,-4,-4,-9]
+1...元の配列を表示,2...配列を昇順ソート,3...配列を降順ソート,4...終了>1
+[-2,0,8,2,-4,3,7,0,-4,-9]
+1...元の配列を表示,2...配列を昇順ソート,3...配列を降順ソート,4...終了>4
+アプリケーションを終了します
+
+
+
+
+import java.util.Arrays;
+ 
+public class Main {
+ 
+    public static void main(String[] args) {
+        int[] foo = new int[10]; // 元の配列
+         
+        for(int i = 0; i < foo.length; i++) {
+            foo[i] = i + 1;
+        }
+         
+        int[] bar = foo.clone();
+        
+        System.out.println(Arrays.toString(foo));
+        System.out.println(Arrays.toString(bar));
+    }
+ 
+}
+
+
+public class binarySearch {
+    public static boolean execute(int[] data, int target) {
+        int low = 0;
+        int high = data.length - 1;
+        while (low <= high) {
+            int middle = (low + high) >>> 1;
+            if (data[middle] == target) {
+                return true;
+            } else if (data[middle] < target) {
+                low = middle + 1;
+            } else {
+                high = middle - 1;
+            }
+        }
+        return false;
+    }
+
+    public static void main(String[] args) {
+        int[] data = {23, 25, 53, 444, 5466, 12646};
+        boolean result;
+        result = binarySearch.execute(data, 25);
+        if (result){
+            System.out.println("Found!");
+        }
+        else {
+            System.out.println("Not Found.");
+        }
+    }
+
+}
